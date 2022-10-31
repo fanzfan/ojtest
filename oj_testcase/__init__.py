@@ -1,0 +1,10 @@
+from oj_testcase import rand_list, rand_str
+
+rand_int_list = rand_list.rand_int_list
+rand_int_list_unique = rand_list.rand_int_list_unique
+rand_int_list_sorted = rand_list.rand_int_list_sorted
+rand_int_list_sorted_unique = rand_list.rand_int_list_sorted_unique
+rand_str_alphabetic_lower = rand_str.rand_str_alphabetic_lower
+rand_str_alphabetic_capital = rand_str.rand_str_alphabetic_capital
+rand_str_alphabetic = rand_str.rand_str_alphabetic
+rand_str_digital = rand_str.rand_str_digital
