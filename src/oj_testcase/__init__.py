@@ -1,4 +1,4 @@
-from oj_testcase import rand_list, rand_str
+from . import rand_list, rand_str
 
 rand_int_list = rand_list.rand_int_list
 rand_int_list_unique = rand_list.rand_int_list_unique
