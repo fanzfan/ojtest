@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: oj-testcase
+Version: 0.0.1.1
+Summary: A testcase generator for online judges.
+Author-email: Vela <velayf@outlook.com>
+Project-URL: Homepage, https://github.com/VelaQ/oj_testcase
+Project-URL: Bug Tracker, https://github.com/VelaQ/oj_testcase/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE

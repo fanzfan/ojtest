@@ -1,16 +1,16 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "pyperclip"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "oj_testcase"
-version = "0.0.1"
+version = "0.0.1.1"
 authors = [
   { name="Vela", email="velayf@outlook.com" },
 ]
 description = "A testcase generator for online judges."
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.0"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Homepage" = "https://github.com/VelaQ/oj_testcase"
+"Bug Tracker" = "https://github.com/VelaQ/oj_testcase/issues"
