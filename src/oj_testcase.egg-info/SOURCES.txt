@@ -1,9 +1,0 @@
-LICENSE
-pyproject.toml
-src/oj_testcase/__init__.py
-src/oj_testcase/rand_list.py
-src/oj_testcase/rand_str.py
-src/oj_testcase.egg-info/PKG-INFO
-src/oj_testcase.egg-info/SOURCES.txt
-src/oj_testcase.egg-info/dependency_links.txt
-src/oj_testcase.egg-info/top_level.txt
