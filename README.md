@@ -1,7 +1,6 @@
-# Oj Testcase
+# OjTest - A testcase generator for online judges.  
 
-A testcase generator for online judges.  
-Install `pip3 install oj_testcase`  
+Install  `pip3 install oj_testcase`  
 If you find this project helpful, star it!
 
 ---
@@ -26,7 +25,7 @@ If you find this project helpful, star it!
 
 ### 1. get a string consists of alphabets
 ```python
-import oj_testcase as oj
+import ojtest as oj
 
 oj.rand_str_alphabetic(50)
 # "UfAdzVUbzTxsVvLzOIgjPoMULRymXynTceMdqaxeQFLASxWCEn"
@@ -36,7 +35,7 @@ oj.rand_str_alphabetic(50)
 ### 2. get a list consists of random integer values  
 
 ```python
-import oj_testcase as oj
+import ojtest as oj
 
 oj.rand_int_list(0, 100, 10)
 # [32, 74, 60, 33, 31, 84, 64, 43, 63, 34]
@@ -45,7 +44,7 @@ oj.rand_int_list(0, 100, 10)
 ---
 ### 3. get a list consists of sorted random integer values  
 ```python
-import oj_testcase as oj
+import ojtest as oj
 
 oj.rand_int_list_sorted(0, 100, 10)
 # [5, 19, 35, 37, 46, 64, 69, 75, 78, 91]
