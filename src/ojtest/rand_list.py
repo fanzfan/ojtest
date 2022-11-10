@@ -1,8 +1,8 @@
-
-from random import randint
-import pyperclip
-from typing import TypeVar, List, Union
 from functools import cmp_to_key
+from random import randint
+from typing import List
+
+import pyperclip
 
 INC = cmp_to_key(lambda x, y: x - y)
 
@@ -13,7 +13,8 @@ def rand_int_list(length: int,
                   copy=True) -> List[int]:
     """Generate a list consists of integer values and copy it to the clipboard
 
-        A simple example: 
+        Examples:
+            rand_int_list(10)         -> [32, 74, 60, 33, 31, 84, 64, 43, 63, 34]
             rand_int_list(10, 0, 100) -> [32, 74, 60, 33, 31, 84, 64, 43, 63, 34]
     """
     int_list = rand_int_list_generic(length, min_val, max_val)
@@ -31,7 +32,8 @@ def rand_int_list_unique(length: int,
                          copy=True) -> List[int]:
     """Generate a list consists of UNIQUE integer values and copy it to the clipboard
 
-        A simple example: 
+        Examples:
+            rand_int_list_unique(10)         -> [97, 98, 38, 41, 73, 17, 18, 51, 20, 25]
             rand_int_list_unique(10, 0, 100) -> [97, 98, 38, 41, 73, 17, 18, 51, 20, 25]
     """
     int_list_unique = rand_int_list_generic(
@@ -51,7 +53,8 @@ def rand_int_list_sorted(length: int,
                          copy=True) -> List[int]:
     """Generate a list consists of SORTED integer values and copy it to the clipboard
 
-        A simple example: 
+        Examples:
+            rand_int_list_sorted(10)         -> [5, 19, 35, 37, 46, 64, 69, 75, 78, 91]
             rand_int_list_sorted(10, 0, 100) -> [5, 19, 35, 37, 46, 64, 69, 75, 78, 91]
     """
 
@@ -72,7 +75,8 @@ def rand_int_list_sorted_unique(length: int,
                                 copy=True) -> List[int]:
     """Generate a list consists of SORTED AND UNIQUE integer values and copy it to the clipboard
 
-        A simple example: 
+        Examples:
+            rand_int_list_sorted_unique(10,)        -> [0, 33, 48, 53, 71, 74, 86, 87, 89, 97]
             rand_int_list_sorted_unique(10, 0, 100) -> [0, 33, 48, 53, 71, 74, 86, 87, 89, 97]
     """
 
@@ -91,7 +95,7 @@ def rand_int_list_generic(length: int,
                           max_val: int,
                           unique=False,
                           copy=True) -> List[int]:
-    int_list = [randint(min_val, max_val) for i in range(length)]
+    int_list = [randint(min_val, max_val) for _ in range(length)]
 
     if unique:
         int_list = list(set(int_list))

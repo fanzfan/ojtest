@@ -1,75 +1,72 @@
+from random import choice as rand_choice
 
-from random import randint
 import pyperclip
-from functools import cmp_to_key
 
-ALPHABETS = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+LOWER = "qwertyuiopasdfghjklzxcvbnm"
+CAPITAL = "QWERTYUIOPASDFGHJKLZXCVBNM"
 DIGITS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+def rand_str(length: int,
+             char_set=LOWER + CAPITAL,
+             copy=True):
+    """Generate a string consists of lower alphabetics and copy it to the clipboard
+
+        Examples:
+            rand_str(15)                            -> "FzCVCBfGRMbENBV"
+            rand_str(15, char_st="?~abcdABCD1234")  -> "?a4c4?2D2b3AAB~"
+    """
+    return rand_str_generic(length, char_set, copy)
 
 
 def rand_str_alphabetic_lower(length: int,
                               copy=True) -> str:
     """Generate a string consists of lower alphabetics and copy it to the clipboard
 
-        A simple example: 
+        Examples:
             rand_str_alphabetic_lower(10) -> "firhykkfkv"
     """
-    return rand_str_alphabetic_generic('lower', length, copy)
+    return rand_str_generic(length, LOWER, copy)
 
 
 def rand_str_alphabetic_capital(length: int,
                                 copy=True) -> str:
     """Generate a string consists of capital alphabetics and copy it to the clipboard
 
-        A simple example: 
+        Examples:
             rand_str_alphabetic_capital(10) -> "MKONCZHFOU"
     """
-    return rand_str_alphabetic_generic('capital', length, copy)
+    return rand_str_generic(length, CAPITAL, copy)
 
 
 def rand_str_alphabetic(length: int,
                         copy=True) -> str:
     """Generate a string consists of alphabetics and copy it to the clipboard
 
-        A simple example: 
+        Examples:
             rand_str_alphabetic(10) -> "TITVqaehLo"
     """
-    return rand_str_alphabetic_generic('mixed', length, copy)
-
-
-def rand_str_alphabetic_generic(method: str,
-                                length: int,
-                                copy=True) -> str:
-
-    if method == 'lower':
-        start, end = 0, 25
-    elif method == 'capital':
-        start, end = 26, 51
-    else:
-        start, end = 0, 51
-
-    s = [ALPHABETS[randint(start, end)] for i in range(length)]
-    s = '"' + ''.join(s) + '"'
-
-    if copy:
-        pyperclip.copy(s)
-
-    return s
+    return rand_str_generic(length, LOWER + CAPITAL, copy)
 
 
 def rand_str_digital(length: int,
                      radix=10,
                      copy=True) -> str:
-
     """Generate a string consists of digits and copy it to the clipboard
 
-        A simple example: 
-            rand_str_digital(10) -> "1460269723"
+        Examples:
+            rand_str_digital(10)     -> "1460269723"
+            rand_str_digital(10, 16) -> "A6C39DB855"
     """
-    if radix > 36:
-        pass
-    start, end = 0, radix - 1
-    s = [DIGITS[randint(start, end)] for i in range(length)]
+
+    char_set = DIGITS[:radix]
+    return rand_str_generic(length, char_set, copy)
+
+
+def rand_str_generic(length: int,
+                     char_set: str,
+                     copy=True) -> str:
+    s = [rand_choice(char_set) for _ in range(length)]
     s = '"' + ''.join(s) + '"'
 
     if copy:

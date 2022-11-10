@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ojtest"
-version = "0.0.2.1"
+version = "0.0.2.2"
 authors = [
   { name="Vela", email="velayf@outlook.com" },
 ]
