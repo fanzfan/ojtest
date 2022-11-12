@@ -10,7 +10,7 @@ INC = cmp_to_key(lambda x, y: x - y)
 def rand_int_list(length: int,
                   min_val=0,
                   max_val=100,
-                  copy=True) -> List[int]:
+                  copy=True) -> (List[int], str):
     """Generate a list consists of integer values and copy it to the clipboard
 
         Examples:
@@ -23,13 +23,13 @@ def rand_int_list(length: int,
     if copy:
         pyperclip.copy(s)
 
-    return int_list
+    return int_list, s
 
 
 def rand_int_list_unique(length: int,
                          min_val=0,
                          max_val=100,
-                         copy=True) -> List[int]:
+                         copy=True) -> (List[int], str):
     """Generate a list consists of UNIQUE integer values and copy it to the clipboard
 
         Examples:
@@ -43,14 +43,14 @@ def rand_int_list_unique(length: int,
     if copy:
         pyperclip.copy(s)
 
-    return int_list_unique
+    return int_list_unique, s
 
 
 def rand_int_list_sorted(length: int,
                          min_val=0,
                          max_val=100,
                          key=INC,
-                         copy=True) -> List[int]:
+                         copy=True) -> (List[int], str):
     """Generate a list consists of SORTED integer values and copy it to the clipboard
 
         Examples:
@@ -65,14 +65,14 @@ def rand_int_list_sorted(length: int,
     if copy:
         pyperclip.copy(s)
 
-    return int_list_sorted
+    return int_list_sorted, s
 
 
 def rand_int_list_sorted_unique(length: int,
                                 min_val=0,
                                 max_val=100,
                                 key=INC,
-                                copy=True) -> List[int]:
+                                copy=True) -> (List[int], str):
     """Generate a list consists of SORTED AND UNIQUE integer values and copy it to the clipboard
 
         Examples:
@@ -87,7 +87,7 @@ def rand_int_list_sorted_unique(length: int,
     if copy:
         pyperclip.copy(s)
 
-    return int_list_sorted_unique
+    return int_list_sorted_unique, s
 
 
 def rand_int_list_generic(length: int,
