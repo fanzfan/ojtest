@@ -30,7 +30,7 @@ def rand_tree(max_depth: int,
         depth += 1
         n_cnt = 0
 
-        for i in range(current_size):
+        for _ in range(current_size):
 
             for _ in range(n_ary):
 
@@ -46,8 +46,11 @@ def rand_tree(max_depth: int,
     return s
 
 
-def rand_bst():
-    """Generate a BALANCED binary search tree consists of random integers, using the algorithm like leetcode-108
+def rand_bst(num_of_elements: int,
+             min_val=0,
+             max_val=20,
+             n_ary=2) -> str:
+    """Generate a BALANCED binary search tree consists of UNIQUE random integers.
 
         Examples:
             rand_tree(3) -> [92, 98, 1, 43, null, 66, 45, null, 35, 48, 94, null, 87]
