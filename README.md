@@ -35,9 +35,9 @@ import random
 
 random.seed(42)
 
-oj.rand_tree(3)
-# or j.rand_tree(3, min_val=0, max_val=20)
-# or j.rand_tree(3, min_val=0, max_val=20, n_ary=2)
+oj.rand_tree(4)
+# or oj.rand_tree(max_depth=4, min_val=0, max_val=20)
+# or oj.rand_tree(max_depth=4, min_val=0, max_val=20, n_ary=2)
 # [6, 20, 14, 16, null, 19, 3, 20, null, 8, null, 9, 9]
 """
              (6)
