@@ -22,11 +22,37 @@ If you find this project helpful, star it!
 4. rand_str_alphabetic_capital
 5. rand_str_digital
 
+### 3. generate a random tree and copy it to the clipboard
+1. rand_tree
 ---
 
 ## Usage
 
-### 1. get a string consists of customized char sets(string format)
+### 1. get a N-ary tree of random integers
+```python
+import ojtest as oj
+import random
+
+random.seed(42)
+
+oj.rand_tree(3)
+# or j.rand_tree(3, min_val=0, max_val=20)
+# or j.rand_tree(3, min_val=0, max_val=20, n_ary=2)
+# [6, 20, 14, 16, null, 19, 3, 20, null, 8, null, 9, 9]
+"""
+             (6)
+             /  \
+         (20)    (14)
+         /       /  \
+      (16)    (19)  (3)
+      /       /     / \
+    (20)    (8)   (9) (9)
+"""
+```
+
+---
+
+### 2. get a string consists of customized char sets(string format)
 Default char set is alphabets
 ```python
 import ojtest as oj
@@ -43,7 +69,8 @@ oj.rand_str(length=50, char_set='QWERTYqwerty987654')
 
 ---
 
-### 2. get a string consists of alphabets
+
+### 3. get a string consists of alphabets
 ```python
 import ojtest as oj
 import random
@@ -58,7 +85,7 @@ oj.rand_str_alphabetic(50)
 
 ---
 
-### 3. get a list consists of random integer values  
+### 4. get a list consists of random integer values  
 By default, min value is 0, and max value is 100
 ```python
 import ojtest as oj
@@ -73,7 +100,7 @@ oj.rand_int_list(10, 0, 100)
 ```
 
 ---
-### 4. get a list consists of sorted random integer values  
+### 5. get a list consists of sorted random integer values  
 By default, min value is 0, and max value is 100
 ```python
 import ojtest as oj
@@ -88,7 +115,7 @@ oj.rand_int_list_sorted(10, 0, 100)
 ```
 
 ---
-### 5. get a list consists of customized sorted random integer values  
+### 6. get a list consists of customized sorted random integer values  
 By default, min value is 0, and max value is 100
 ```python
 import ojtest as oj

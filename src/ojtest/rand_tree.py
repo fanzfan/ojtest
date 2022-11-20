@@ -15,7 +15,7 @@ def rand_tree(max_depth: int,
     """Generate a tree consists of random integers, a binary tree will be provided by default
 
         Examples:
-            rand_tree(3) -> [92, 98, 1, 43, null, 66, 45, null, 35, 48, 94, null, 87]
+            rand_tree(4) -> [92, 98, 1, 43, null, 66, 45, null, 35, 48, 94, null, 87]
 
              (92)
              /  \
