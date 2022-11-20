@@ -1,6 +1,4 @@
-from ojtest import (rand_list as rl,
-                    rand_str as rs,
-                    rand_tree as rt)
+from ojtest import rand_list as rl, rand_str as rs, rand_tree as rt
 
 rand_int_list = rl.rand_int_list
 rand_int_list_unique = rl.rand_int_list_unique

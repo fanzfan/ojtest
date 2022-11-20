@@ -1,3 +1,4 @@
+import collections
 from random import random, randint
 
 import pyperclip
@@ -15,6 +16,15 @@ def rand_tree(max_depth: int,
 
         Examples:
             rand_tree(3) -> [92, 98, 1, 43, null, 66, 45, null, 35, 48, 94, null, 87]
+
+             (92)
+             /  \
+         (98)    (1)
+         /       /  \
+      (43)    (66)  (45)
+        \      / \    \
+       (35)  (48)(94) (87)
+
     """
     s = '[' + str(randint(min_val, max_val)) + ', '
 
@@ -46,13 +56,24 @@ def rand_tree(max_depth: int,
     return s
 
 
-def rand_bst(num_of_elements: int,
+def rand_bst(max_depth: int,
              min_val=0,
-             max_val=20,
+             max_val=30,
              n_ary=2) -> str:
     """Generate a BALANCED binary search tree consists of UNIQUE random integers.
 
         Examples:
-            rand_tree(3) -> [92, 98, 1, 43, null, 66, 45, null, 35, 48, 94, null, 87]
+            TODO
     """
+
+    # TODO: Choose a way from options below
+    # Option 1: Construct a BST from a sorted list, then traverse and get the result list
+    # Option 2: Directly generate a list, using the definition of BST : ->
+    # (left child node(LCN)'s val is lower, right child node(RCN)'s val is greater)
+    # this method need a queue to store 3 parameters [min_val, max_val, node_val]
+    # like for a root node (42), min_val = 0, max_val = 100
+    # for its LCN, val is randint(0, 42 - 1), let's assume it is 20
+    # for RCN, val is randint(42 + 1, 100), assume it is 75
+    # then a simple bst is built
+
     pass
