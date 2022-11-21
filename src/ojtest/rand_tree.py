@@ -11,7 +11,8 @@ NULL_THRESHOLD = 0.8
 def rand_tree(max_depth: int,
               min_val=0,
               max_val=20,
-              n_ary=2) -> str:
+              n_ary=2,
+              null_possibility=NULL_THRESHOLD) -> str:
     """Generate a tree consists of random integers, a binary tree will be provided by default
 
         Examples:
@@ -26,7 +27,7 @@ def rand_tree(max_depth: int,
        (35)  (48)(94) (87)
 
     """
-    s = '[' + str(randint(min_val, max_val)) + ', '
+    tree = [str(randint(min_val, max_val))]
 
     # current depth
     depth = 1
@@ -44,13 +45,14 @@ def rand_tree(max_depth: int,
 
             for _ in range(n_ary):
 
-                if random() < NULL_THRESHOLD:
-                    s += str(randint(min_val, max_val)) + ', '
+                if random() < null_possibility:
+                    tree.append(str(randint(min_val, max_val)))
                     n_cnt += 1
                 else:
-                    s += 'null, '
+                    tree.append('null')
 
-    s = s[0:-2] + ']'
+    s = ', '.join(tree)
+    s = '[' + s + ']'
     pyperclip.copy(s)
 
     return s
@@ -59,21 +61,54 @@ def rand_tree(max_depth: int,
 def rand_bst(max_depth: int,
              min_val=0,
              max_val=30,
-             n_ary=2) -> str:
-    """Generate a BALANCED binary search tree consists of UNIQUE random integers.
+             null_possibility=NULL_THRESHOLD) -> str:
+    """Generate a binary search tree consists of UNIQUE random integers.
 
         Examples:
-            TODO
+            rand_bst(4) -> [10, 4, 23, 1, 9, 16, 24, null, 2, 7, null, 13, null, null, 26]
+
+                      (10)
+                     /   \
+                  (4)     (23)
+                 / \       / \
+              (1)  (9)   (16) (24)
+               \    /     /     \
+               (2) (7)  (13)    (26)
     """
 
-    # TODO: Choose a way from options below
-    # Option 1: Construct a BST from a sorted list, then traverse and get the result list
-    # Option 2: Directly generate a list, using the definition of BST : ->
-    # (left child node(LCN)'s val is lower, right child node(RCN)'s val is greater)
-    # this method need a queue to store 3 parameters [min_val, max_val, node_val]
-    # like for a root node (42), min_val = 0, max_val = 100
-    # for its LCN, val is randint(0, 42 - 1), let's assume it is 20
-    # for RCN, val is randint(42 + 1, 100), assume it is 75
-    # then a simple bst is built
+    root_val = randint(min_val // 3 * 2 + max_val // 3, min_val // 3 + max_val // 3 * 2)
+    queue = collections.deque()
+    queue.append([min_val, root_val, max_val])
 
-    pass
+    tree = [str(queue[0][1])]
+    depth = 1
+
+    while depth < max_depth:
+        current_size = len(queue)
+
+        for _ in range(current_size):
+            node = queue.popleft()
+
+            # left child
+            if random() < null_possibility and node[1] - node[0] > 1:
+                left_val = randint(node[0] + 1, node[1] - 1)
+                tree.append(str(left_val))
+                queue.append([node[0], left_val, node[1]])
+            else:
+                tree.append('null')
+
+            # right child
+            if random() < null_possibility and node[2] - node[1] > 1:
+                right_val = randint(node[1] + 1, node[2] - 1)
+                tree.append(str(right_val))
+                queue.append([node[1], right_val, node[2]])
+            else:
+                tree.append('null')
+
+        depth += 1
+
+    s = ', '.join(tree)
+    s = '[' + s + ']'
+    pyperclip.copy(s)
+
+    return s

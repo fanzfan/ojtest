@@ -13,3 +13,5 @@ rand_str_alphabetic = rs.rand_str_alphabetic
 rand_str_digital = rs.rand_str_digital
 
 rand_tree = rt.rand_tree
+rand_bst = rt.rand_bst
+
