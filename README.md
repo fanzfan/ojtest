@@ -24,6 +24,7 @@ If you find this project helpful, star it!
 
 ### 3. generate a random tree and copy it to the clipboard
 1. rand_tree
+2. rand_bst
 ---
 
 ## Usage
