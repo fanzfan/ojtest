@@ -76,7 +76,12 @@ def rand_bst(max_depth: int,
                (2) (7)  (13)    (26)
     """
 
+    # to make the bst more balanced, we randomly choose the root value from the middle 1/3 of the range
     root_val = randint(min_val // 3 * 2 + max_val // 3, min_val // 3 + max_val // 3 * 2)
+
+    # store the values of node itself, min_val and max_val of its children 
+    # e.g. root_val = 20, min_val = 0, max_val = 30 -> [0, 20, 30]
+    # left_child_val is randint(0, 20), right_child_val is randint(20, 30)
     queue = collections.deque()
     queue.append([min_val, root_val, max_val])
 
@@ -87,21 +92,21 @@ def rand_bst(max_depth: int,
         current_size = len(queue)
 
         for _ in range(current_size):
-            node = queue.popleft()
+            child_min, parent_val, child_max = queue.popleft()
 
             # left child
-            if random() < null_possibility and node[1] - node[0] > 1:
-                left_val = randint(node[0] + 1, node[1] - 1)
+            if random() < null_possibility and parent_val - child_min > 1:
+                left_val = randint(child_min + 1, parent_val - 1)
                 tree.append(str(left_val))
-                queue.append([node[0], left_val, node[1]])
+                queue.append([child_min, left_val, parent_val])
             else:
                 tree.append('null')
 
             # right child
-            if random() < null_possibility and node[2] - node[1] > 1:
-                right_val = randint(node[1] + 1, node[2] - 1)
+            if random() < null_possibility and child_max - parent_val > 1:
+                right_val = randint(parent_val + 1, child_max - 1)
                 tree.append(str(right_val))
-                queue.append([node[1], right_val, node[2]])
+                queue.append([parent_val, right_val, child_max])
             else:
                 tree.append('null')
 
